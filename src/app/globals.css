@@ -143,6 +143,7 @@ a {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
 /* Calendar Section */
 .calendar-section {
   border-top: 1px dashed #dcdcdc;
@@ -221,4 +222,83 @@ a {
 
 .calendar-card:hover .calendar-card-location {
   color: #ccc;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE STYLES
+   ======================================== */
+
+/* Tablet and below */
+@media (max-width: 768px) {
+  :root {
+    --spacing-lg: 20px;
+    --spacing-xl: 40px;
+    --spacing-xxl: 60px;
+  }
+
+  .text-jumbo {
+    font-size: clamp(2rem, 10vw, 4rem);
+  }
+
+  .text-lg {
+    font-size: 1.25rem;
+  }
+
+  /* Container padding for mobile */
+  .container {
+    padding: 0 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .text-jumbo {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+  }
+
+  .text-lg {
+    font-size: 1rem;
+  }
+
+  .text-sm {
+    font-size: 0.75rem;
+  }
+
+  /* Calendar cards smaller on mobile */
+  .calendar-card {
+    min-width: 180px;
+    padding: 10px;
+  }
+
+  .calendar-card-title {
+    font-size: 0.75rem;
+  }
+
+  /* Buttons more touch-friendly */
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.875rem;
+  }
+}
+
+/* Hide on mobile utility */
+.hide-on-mobile {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+
+/* Show on mobile utility */
+.show-on-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .show-on-mobile {
+    display: block !important;
+  }
 }

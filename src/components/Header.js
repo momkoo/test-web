@@ -109,14 +109,18 @@ export default async function Header() {
                     </nav>
                 </div>
 
-                {/* 카테고리 네비게이션 (SEO 최적화) */}
+                {/* 카테고리 네비게이션 (SEO 최적화) - 모바일에서 가로 스크롤 */}
                 <nav style={{
                     borderTop: "1px dashed #eee",
                     padding: "12px 0",
                     display: "flex",
-                    gap: "32px",
-                    justifyContent: "center"
-                }}>
+                    gap: "24px",
+                    justifyContent: "flex-start",
+                    overflowX: "auto",
+                    WebkitOverflowScrolling: "touch",
+                    msOverflowStyle: "none",
+                    scrollbarWidth: "none"
+                }} className="no-scrollbar">
                     {CATEGORIES.map((cat) => (
                         <Link
                             key={cat.href}
@@ -127,13 +131,16 @@ export default async function Header() {
                                 textTransform: "uppercase",
                                 letterSpacing: "0.1em",
                                 textDecoration: "none",
-                                color: "#333"
+                                color: "#333",
+                                whiteSpace: "nowrap",
+                                flexShrink: 0
                             }}
                         >
                             {cat.label}
                         </Link>
                     ))}
                 </nav>
+
             </Container>
         </header>
     );
