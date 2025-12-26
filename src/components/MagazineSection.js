@@ -12,31 +12,36 @@ export default async function MagazineSection() {
     const defaultImage = "/images/post1.png";
 
     return (
-        <section style={{ backgroundColor: "#fff", paddingBottom: "80px" }}>
+        <section style={{ backgroundColor: "#fff", paddingBottom: "40px" }}>
             {/* FASHION SECTION */}
-            <Container style={{ paddingTop: "80px" }}>
+            <Container style={{ paddingTop: "40px" }}>
                 <SectionHeader title="FASHION" />
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px", marginBottom: "80px" }}>
+                <div style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                    gap: "24px",
+                    marginBottom: "40px"
+                }}>
                     {/* Main Left */}
                     {fashionPosts.length > 0 ? (
                         <>
                             <div style={{ cursor: "pointer" }}>
-                                <div style={{ overflow: "hidden", marginBottom: "16px", borderRadius: "8px" }}>
+                                <div style={{ overflow: "hidden", marginBottom: "12px", borderRadius: "8px" }}>
                                     <img
                                         src={fashionPosts[0]?.image || defaultImage}
                                         alt={fashionPosts[0]?.title}
                                         style={{ width: "100%", height: "auto", transition: "transform 0.5s" }}
                                     />
                                 </div>
-                                <h3 style={{ fontSize: "1.5rem", fontWeight: "700", lineHeight: 1.3 }}>
+                                <h3 style={{ fontSize: "1.25rem", fontWeight: "700", lineHeight: 1.3 }}>
                                     {fashionPosts[0]?.title}
                                 </h3>
                             </div>
                             {/* Sub Right */}
-                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
                                 {fashionPosts.slice(1, 5).map(post => (
                                     <div key={post.id} style={{ cursor: "pointer" }}>
-                                        <div style={{ overflow: "hidden", marginBottom: "12px", borderRadius: "8px" }}>
+                                        <div style={{ overflow: "hidden", marginBottom: "8px", borderRadius: "8px" }}>
                                             <img
                                                 src={post.image || defaultImage}
                                                 alt={post.title}
@@ -57,6 +62,7 @@ export default async function MagazineSection() {
                     )}
                 </div>
             </Container>
+
 
             {/* MUST HAVE SECTION (Horizontal Scroll) */}
             <div style={{ marginBottom: "80px", padding: "48px 0", background: "#f5f5f5" }}>
@@ -89,20 +95,24 @@ export default async function MagazineSection() {
             {/* TODAY'S PICK SECTION */}
             <Container>
                 <SectionHeader title="TODAY'S PICK" />
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px" }}>
+                <div style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+                    gap: "16px"
+                }}>
                     {pickPosts.length > 0 ? pickPosts.slice(0, 4).map(post => (
                         <div key={post.id} style={{ cursor: "pointer" }}>
-                            <div style={{ overflow: "hidden", marginBottom: "16px", borderRadius: "8px" }}>
+                            <div style={{ overflow: "hidden", marginBottom: "8px", borderRadius: "8px" }}>
                                 <img
                                     src={post.image || defaultImage}
                                     alt={post.title}
                                     style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover" }}
                                 />
                             </div>
-                            <div style={{ fontSize: "0.75rem", fontWeight: "700", color: "#e00", textTransform: "uppercase", marginBottom: "8px" }}>
+                            <div style={{ fontSize: "0.625rem", fontWeight: "700", color: "#e00", textTransform: "uppercase", marginBottom: "4px" }}>
                                 {post.category}
                             </div>
-                            <h3 style={{ fontSize: "1.125rem", fontWeight: "700", lineHeight: 1.3 }}>
+                            <h3 style={{ fontSize: "0.875rem", fontWeight: "700", lineHeight: 1.3 }}>
                                 {post.title}
                             </h3>
                         </div>
@@ -112,6 +122,7 @@ export default async function MagazineSection() {
                         </p>
                     )}
                 </div>
+
             </Container>
         </section>
     );
