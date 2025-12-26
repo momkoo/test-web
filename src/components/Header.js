@@ -12,6 +12,7 @@ const CATEGORIES = [
 
 export default async function Header() {
     const session = await auth();
+    const isLoggedIn = session?.user?.email ? true : false;
 
     return (
         <header style={{
@@ -42,10 +43,11 @@ export default async function Header() {
 
                     {/* Right Navigation */}
                     <nav style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-                        {session ? (
+                        {isLoggedIn ? (
                             <>
                                 {session.user?.role === "ADMIN" && (
                                     <Link href="/admin" style={{
+
                                         fontSize: "0.875rem",
                                         fontWeight: "600",
                                         textDecoration: "none",
