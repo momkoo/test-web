@@ -116,15 +116,13 @@ npm start
 
 ## 👤 관리자 계정 설정
 
-### 방법 1: seed.js 사용 (기본)
+### 방법 1: seed.js 사용
 
 ```bash
 node prisma/seed.js
 ```
 
-기본 관리자 계정:
-- Email: `admin@example.com`
-- Password: `admin123`
+> ⚠️ 기본 계정 정보는 `LOCAL_NOTES.md` 참조 (Git에서 제외됨)
 
 ### 방법 2: 직접 생성
 
