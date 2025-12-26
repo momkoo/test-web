@@ -59,7 +59,7 @@ export default async function Header() {
                                 </span>
                                 <form action={async () => {
                                     "use server";
-                                    await signOut({ redirectTo: "/" });
+                                    await signOut({ redirect: true, redirectTo: "/" });
                                 }}>
                                     <button type="submit" style={{
                                         background: "none",
@@ -68,6 +68,7 @@ export default async function Header() {
                                         borderRadius: "4px",
                                         fontSize: "0.75rem",
                                         cursor: "pointer",
+
                                         color: "#666"
                                     }}>
                                         로그아웃

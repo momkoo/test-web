@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import { useRouter } from "next/navigation";
 
 const CATEGORIES = [
@@ -18,6 +18,7 @@ const LAYOUT_TYPES = [
 ];
 
 export default function PostEditPage({ params }) {
+    const { id } = use(params);
     const [post, setPost] = useState(null);
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
@@ -27,7 +28,7 @@ export default function PostEditPage({ params }) {
     useEffect(() => {
         async function fetchPost() {
             try {
-                const res = await fetch(`/api/posts/${params.id}`);
+                const res = await fetch(`/api/posts/${id}`);
                 if (res.ok) {
                     setPost(await res.json());
                 } else {
@@ -40,7 +41,7 @@ export default function PostEditPage({ params }) {
             }
         }
         fetchPost();
-    }, [params.id]);
+    }, [id]);
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -61,7 +62,7 @@ export default function PostEditPage({ params }) {
         };
 
         try {
-            const res = await fetch(`/api/posts/${params.id}`, {
+            const res = await fetch(`/api/posts/${id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
@@ -83,7 +84,7 @@ export default function PostEditPage({ params }) {
         if (!confirm("정말 삭제하시겠습니까?")) return;
 
         try {
-            const res = await fetch(`/api/posts/${params.id}`, { method: "DELETE" });
+            const res = await fetch(`/api/posts/${id}`, { method: "DELETE" });
             if (res.ok) {
                 router.push("/admin/posts");
             }
