@@ -6,12 +6,13 @@
 
 ## 🔐 관리자 계정
 
-**기본 관리자 (seed.js로 생성):**
-```bash
-node prisma/seed.js
-```
-- Email: `admin@example.com`
-- Password: `admin123`
+**새 관리자:**
+- Email: `bnm.admin@example.com`
+- Password: `bnmAdmin2024!`
+
+**비밀번호 해시 (bcrypt):**
+`$2a$12$...` (seed.js에서 생성)
+
 
 ---
 
